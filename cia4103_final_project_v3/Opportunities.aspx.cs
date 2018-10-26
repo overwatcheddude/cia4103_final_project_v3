@@ -13,6 +13,9 @@ public partial class Opportunities : System.Web.UI.Page
         //Check if user is authenticated, if so, then redirect him to login page.
         General.IsAuthenticated(Session["email"], Response);
 
+        //Sets the welcome text, and display the user's email and account type (Student or Organizer).
+        lblWelcome.Text = "Welcome " + Session["email"].ToString() + ", your account type is " + Session["accType"];
+
         DataTable opportunities = Opportunity.GetAll();
 
         ListOpportunities(opportunities);

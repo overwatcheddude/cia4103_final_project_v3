@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <h1>Opportunities</h1>
+            <asp:Label ID="lblWelcome" runat="server"></asp:Label><br />
             <asp:Literal ID="ltlError" runat="server"></asp:Literal>
             <asp:Repeater ID="rptrOpportunities" runat="server">
                 <ItemTemplate>
