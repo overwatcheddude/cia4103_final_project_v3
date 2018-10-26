@@ -24,7 +24,7 @@ public partial class Login : System.Web.UI.Page
         string password = txtPassword.Text;
 
         //If the user's account exists, then redirect him to a webpage and store his email as session, else display error message.
-        if (Student.Authenticate(email, password))
+        if (Student.Authenticate(email, password) || Organizer.Authenticate(email, password))
         {
             Session["email"] = email;
             Response.Redirect("Opportunities.aspx");
