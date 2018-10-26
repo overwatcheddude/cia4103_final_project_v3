@@ -11,10 +11,7 @@ public partial class Opportunities : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //Check if user is authenticated, if so, then redirect him to login page.
-        if (Session["email"] == null)
-        {
-            Response.Redirect("Login.aspx");
-        }
+        General.IsAuthenticated(Session["email"], Response);
 
         DataTable opportunities = Opportunity.GetAll();
 

@@ -7,13 +7,14 @@ using System.Web.UI.WebControls;
 
 public partial class Login : System.Web.UI.Page
 {
-    private void displayMessage(string msg)
-    {
-        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
-    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    private void displayMessage(string msg)
+    {
+        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
