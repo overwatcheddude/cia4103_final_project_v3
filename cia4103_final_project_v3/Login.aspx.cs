@@ -17,8 +17,27 @@ public partial class Login : System.Web.UI.Page
         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
     }
 
+    private void rememberEmail()
+    {
+        //If the user checked "Remember Email?" checkbox.
+        if (cbRememberEmail.Checked)
+        {
+            //Reads the email from the textbox.
+            string email = txtEmail.Text.ToString();
+
+            //Calls a method to create a cookie (if it does not exist).
+            General.CreateCookie(Request, Response);
+
+            //Insert email value into email key (if the cookie exists).
+            General.InsertToCookie(Request, Response, "email", email);
+        }
+    }
+
     protected void btnLogin_Click(object sender, EventArgs e)
     {
+        //Calls the remember email method to save the user's email in a cookie if the remember email checkbox was checked.
+        rememberEmail();
+
         //Read email and password from textboxes.
         string email = txtEmail.Text;
         string password = txtPassword.Text;
