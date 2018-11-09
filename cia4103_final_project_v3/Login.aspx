@@ -11,11 +11,16 @@
         <div>
             Email: 
             <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RFVemail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter your email." Display="None"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="REVemail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Please enter a valid email." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="None"></asp:RegularExpressionValidator>
             <br />
             Password: 
             <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RFVpassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please enter your password." Display="None"></asp:RequiredFieldValidator>
             <br />
             <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" />
+            <br />
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         </div>
     </form>
 </body>
